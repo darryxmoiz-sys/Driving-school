@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #003366;
+  --red: #E63946;
+  --yellow: #FFD700;
+  --white: #ffffff;
+  --bg-light: #F8F9FF;
+  --success: #2ECC71;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: #ffffff;
+  color: #1a1a2e;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-[#E63946] text-white font-semibold px-6 py-3 rounded-full 
+           transition-all duration-300 hover:bg-[#C02030] hover:shadow-lg hover:-translate-y-0.5 active:scale-95;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white text-[#003366] font-semibold px-6 py-3 rounded-full border-2 border-white
+           transition-all duration-300 hover:bg-[#F8F9FF] hover:shadow-lg hover:-translate-y-0.5 active:scale-95;
+  }
+  .btn-navy {
+    @apply inline-flex items-center gap-2 bg-[#003366] text-white font-semibold px-6 py-3 rounded-full
+           transition-all duration-300 hover:bg-[#002244] hover:shadow-lg hover:-translate-y-0.5 active:scale-95;
+  }
+  .btn-whatsapp {
+    @apply inline-flex items-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-3 rounded-full
+           transition-all duration-300 hover:bg-[#1ebe57] hover:shadow-lg hover:-translate-y-0.5 active:scale-95;
+  }
+  .section-heading {
+    @apply font-display text-3xl md:text-4xl font-bold text-[#003366];
+  }
+  .section-sub {
+    @apply text-gray-500 text-lg mt-3 max-w-2xl mx-auto;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1;
+  }
+  .dvsa-badge {
+    @apply inline-flex items-center gap-2 bg-[#003366] text-white text-xs font-bold px-3 py-1.5 rounded-full tracking-wide;
+  }
+}
+
+/* Road dash animation */
+.road-line {
+  stroke-dasharray: 20 20;
+  animation: roadDash 1s linear infinite;
+}
+@keyframes roadDash {
+  to { stroke-dashoffset: -40; }
+}
+
+/* Car float */
+.car-float {
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Mobile bottom bar clearance */
+@media (max-width: 768px) {
+  .mobile-safe-bottom { padding-bottom: 80px; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #003366; border-radius: 3px; }
